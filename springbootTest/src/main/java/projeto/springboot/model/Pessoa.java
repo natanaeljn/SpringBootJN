@@ -1,10 +1,12 @@
 package projeto.springboot.model;
 import java.io.Serializable;
+import java.util.List;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 
 
@@ -20,6 +22,10 @@ public class Pessoa implements Serializable{
 	
 	private String nome;
 	private String sobrenome;
+	
+	@OneToMany(mappedBy = "pessoa")
+	private List<Telefone>telefones ;
+	
 	public Long getId() {
 		return id;
 	}

@@ -25,6 +25,8 @@ public class PessoaController {
 	public ModelAndView inicio() {
 		ModelAndView view = new ModelAndView("cadastro/cadastropessoa");
 		view.addObject("pessoaobj",new Pessoa());
+		Iterable<Pessoa>pessoasIt = pessoaRepository.findAll();
+		view.addObject("pessoas", pessoasIt);
 		
 		return view;
 	}
@@ -78,6 +80,13 @@ public class PessoaController {
 		return view;
 		
 	}
-	
+	@RequestMapping(method = RequestMethod.GET, value = "/telefones/{idpessoa}")
+	public ModelAndView Telefones(@PathVariable("idpessoa")Long idpessoa) {
+		ModelAndView view = new ModelAndView("cadastro/telefones");
+		Optional<Pessoa> pessoa = pessoaRepository.findById(idpessoa);
+		view.addObject("pessoaobj" , pessoa.get());
+		return view;
+		
+	}
 	
 }

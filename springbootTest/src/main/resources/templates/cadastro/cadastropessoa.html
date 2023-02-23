@@ -55,7 +55,7 @@ color: white;
 <br/>
 <br/>
 
-><div class="row">
+<div class="row">
 <form action="pesquisarpessoa" method="post" class="col s12">
 <div class="row">
 <div class="input-field col s12">
@@ -85,7 +85,7 @@ color: white;
 </thead>
  <tr th:each = "pessoa : ${pessoas}">
  <td th:text = "${pessoa.id}"></td>
- <td th:text = "${pessoa.nome}"></td>
+ <td><a th:href="@{/telefones/{idpessoa}(idpessoa=${pessoa.id})}"><span th:text = "${pessoa.nome}"></span></a></td>
  <td th:text = "${pessoa.sobrenome}"></td>
  <td><a th:href="@{/editarpessoa/{idpessoa}(idpessoa=${pessoa.id})}">Editar</a></td>
   <td><a th:href="@{/excluirpessoa/{idpessoa}(idpessoa=${pessoa.id})}">Excluir</a></td>
