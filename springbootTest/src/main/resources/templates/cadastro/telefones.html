@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>JN </title>
+<title> JN </title>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <link type="text/css" rel="stylesheet" href="/materialize\css\materialize.css"  media="screen,projection"/>
 <link type="text/css" rel="stylesheet" href="/materialize.min.css"  media="screen,projection"/>
@@ -40,7 +40,8 @@ color: white;
   </div>
   <div class="input-field col s6">
   <label class="active"for="numero">Numero:</label>
-  <input id="numero" name="numero"class="validate">
+  <input id="numero" name="numero"
+   class="validate" type="number">
   </div>
   
   <input type="submit" value="Adicionar" class="waves-effect waves-light btn">
@@ -50,6 +51,15 @@ color: white;
 </div>
 </div>
 
+<table class="striped">
+<tr th:each="fone : ${telefones}">
+<td th:text="${fone.tipo}"></td>
+<td th:text="${fone.numero}"></td>
+<td><a th:href="@{/excluirtelefone/{idtelefone}(idtelefone=${fone.id})}">Excluir</a></td>
+
+
+</tr>
+</table>
 
 <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="materialize\js\materialize.js"></script>

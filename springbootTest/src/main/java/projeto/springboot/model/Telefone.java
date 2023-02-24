@@ -20,7 +20,7 @@ public class Telefone implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String tipo;
-	private int numero;
+	private String numero;
 	
 	@ManyToOne
 	@ForeignKey(name = "pessoa_id")
@@ -42,11 +42,11 @@ public class Telefone implements Serializable{
 		this.tipo = tipo;
 	}
 
-	public int getNumero() {
+	public String getNumero() {
 		return numero;
 	}
 
-	public void setNumero(int numero) {
+	public void setNumero(String numero) {
 		this.numero = numero;
 	}
 
