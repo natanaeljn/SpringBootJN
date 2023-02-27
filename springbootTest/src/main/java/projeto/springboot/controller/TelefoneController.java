@@ -1,5 +1,8 @@
 package projeto.springboot.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -25,6 +28,21 @@ public class TelefoneController {
 	@PostMapping("**/addfonepessoa/{pessoaid}")
 	public ModelAndView addFonePessoa(Telefone telefone,@PathVariable("pessoaid")Long pessoaid) {
 		Pessoa pessoa = pessoaRepository.findById(pessoaid).get();
+		if(telefone!=null && telefone.getNumero().isEmpty()||telefone.getTipo().isEmpty()) {
+			ModelAndView modelAndView = new ModelAndView("cadastro/telefones");
+			modelAndView.addObject("pessoaobj",pessoa);
+			modelAndView.addObject("telefones",telefoneRepository.getTelefones(pessoaid));
+			List<String>msg = new ArrayList<String>();
+			if(telefone.getNumero().isEmpty()) {
+			msg.add("Numero precisa ser Informado");
+			}
+			if(telefone.getTipo().isEmpty()) {
+				msg.add("Tipo de telefone nao pode ser vazio");
+				}
+			modelAndView.addObject("msg",msg);
+			return modelAndView;
+		}
+		
 		telefone.setPessoa(pessoa);
 	    telefoneRepository.save(telefone);
 		
