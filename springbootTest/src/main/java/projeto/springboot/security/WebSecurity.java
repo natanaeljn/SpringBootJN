@@ -21,7 +21,8 @@ public class WebSecurity {
 	 SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 	   return http.authorizeHttpRequests( 
 	    		authorizeConfig->{
-	    			authorizeConfig.requestMatchers("/").permitAll();
+	    			authorizeConfig.requestMatchers("/").hasAnyRole("ADMIN","USER","SECRETARIA");
+	    			authorizeConfig.requestMatchers("/cadastropessoa").hasAnyRole("ADMIN");
 	    			authorizeConfig.requestMatchers("/logout").permitAll();
 	    			authorizeConfig.anyRequest().authenticated();
 	    		}
@@ -33,7 +34,7 @@ public class WebSecurity {
 	PasswordEncoder getPasswordEncoder() {
 	    return new BCryptPasswordEncoder();
 	}
-	
+	/*
 	@Bean
 	 UserDetailsService users() {
 		UserDetails user = User.builder()
@@ -48,6 +49,6 @@ public class WebSecurity {
 			.build();
 		return new InMemoryUserDetailsManager(user, admin);
 	}
-	
+	*/
 
 }
