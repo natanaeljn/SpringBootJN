@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title> JN </title>
+
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"> 
+<link type="text/css" rel="stylesheet" href="/materialize/css/materialize.css"  media="screen,projection"/> 
+<link type="text/css" rel="stylesheet" href="/materialize/css/materialize.min.css"  media="screen,projection"/> 
+
+
+<style type="text/css">
+form input[type=submit]{
+	color: white;
+}
+</style>
+
+
+</head>
+<body>
+
+<h1>Bem Vindo, Por favor realize seu Login</h1>
+<form th:action="@{/login}" method="post" class="col s12">
+<div class="row">
+<div class="input-fiel col s6">
+<label>Login</label>
+<input type="text" name="login">
+
+</div>
+</div>
+<div class="row">
+<div class="input-fiel col s6">
+<label>Senha</label>
+<input type="password" name="senha">
+
+</div>
+</div>
+
+<div class="row">
+<div class="input-fiel col s6">
+
+<input  name="logar" type="submit" value="logar" class="waves-effect waves-light btn"/>
+
+</div>
+</div>
+
+
+</form>
+
+
+<script type="text/javascript" src="materialize\js\materialize.js"></script> 
+<script type="text/javascript" src="materialize\js\materialize.min.js"></script> 
+</body>
+</html>

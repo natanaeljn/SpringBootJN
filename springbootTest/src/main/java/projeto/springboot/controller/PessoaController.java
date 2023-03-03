@@ -39,7 +39,7 @@ public class PessoaController {
 		return view;
 	}
 	
-	@RequestMapping(method = RequestMethod.POST, value = "**/salvarpessoa")
+	@RequestMapping(method = RequestMethod.POST, value = "/*/*salvarpessoa")
 	public ModelAndView salvar(@Valid Pessoa pessoa,BindingResult bindingResult) {
 		if(bindingResult.hasErrors()) {
 			ModelAndView view = new ModelAndView("cadastro/cadastropessoa");
@@ -90,7 +90,7 @@ public class PessoaController {
 		return view;
 		
 	}
-	@PostMapping("**/pesquisarpessoa")
+	@PostMapping("/*/*pesquisarpessoa")
 	public ModelAndView pesquisarPorNome(@RequestParam("nomepesquisa") String nomepesquisa) {
 		
 		ModelAndView view = new ModelAndView("cadastro/cadastropessoa");

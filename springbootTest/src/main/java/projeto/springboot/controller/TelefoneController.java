@@ -25,7 +25,7 @@ public class TelefoneController {
 	@Autowired
 	private  TelefoneRepository telefoneRepository;
 	
-	@PostMapping("**/addfonepessoa/{pessoaid}")
+	@PostMapping("/*/*addfonepessoa/{pessoaid}")
 	public ModelAndView addFonePessoa(Telefone telefone,@PathVariable("pessoaid")Long pessoaid) {
 		Pessoa pessoa = pessoaRepository.findById(pessoaid).get();
 		if(telefone!=null && telefone.getNumero().isEmpty()||telefone.getTipo().isEmpty()) {
