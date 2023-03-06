@@ -20,28 +20,21 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableJpaRepositories(basePackages = {"projeto.springboot.repository"})
 @EnableTransactionManagement
 @EnableWebMvc
-public class SpringbootTestApplication implements WebMvcConfigurer{
+public class SpringbootTestApplication implements WebMvcConfigurer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootTestApplication.class, args);
 	}
 
+	/*
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/login").setViewName("/login");
 		registry.setOrder(Ordered.LOWEST_PRECEDENCE);
 		
 	}
+	*/
 	
-	@Override
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/webjars/**", "/resources/**", "/static/**", "/img/**", "/css/**", "/js/**",
-				"classpath:/static/", "classpath:/resources/")
-		.addResourceLocations("/webjars/", "/resources/",
-						"classpath:/static/**", "classpath:/static/img/**", "classpath:/static/",
-						"classpath:/resources/", "classpath:/static/css/", "classpath:/static/js/", "/resources/**",
-						"/WEB-INF/classes/static/**");
-	}
 	
 	
 }
