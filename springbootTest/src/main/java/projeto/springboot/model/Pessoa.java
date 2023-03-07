@@ -37,12 +37,22 @@ public class Pessoa implements Serializable{
 	private String uf;
 	private String ibge;
 	
+	private String sexoPessoa;
+	
 	@OneToMany(mappedBy = "pessoa", orphanRemoval = true , cascade = CascadeType.ALL)
 	private List<Telefone>telefones ;
 	
 	
 	
 	
+	
+	
+	public String getSexoPessoa() {
+		return sexoPessoa;
+	}
+	public void setSexoPessoa(String sexoPessoa) {
+		this.sexoPessoa = sexoPessoa;
+	}
 	public String getCep() {
 		return cep;
 	}

@@ -22,34 +22,10 @@ form input[type=submit]{
 </head>
 <body>
 
-<h1>Bem Vindo, Por favor realize seu Login</h1>
-<form th:action="@{/login}" method="post" class="col s12">
-<div class="row">
-<div class="input-fiel col s6">
-<label>Login</label>
-<input type="text" name="username">
-
-</div>
-</div>
-<div class="row">
-<div class="input-fiel col s6">
-<label>Senha</label>
-<input type="password" name="password">
-
-</div>
-</div>
-
-<div class="row">
-<div class="input-fiel col s6">
-
-<input  name="logar" type="submit" value="logar" class="waves-effect waves-light btn"/>
-
-</div>
-</div>
-
-
-</form>
-
+<h1>Obrigado por usar nosso sistema, até breve</h1>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="SAIR"></input>
+  </form>
 
 
 </body>

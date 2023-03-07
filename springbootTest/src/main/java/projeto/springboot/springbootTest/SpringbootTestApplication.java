@@ -26,14 +26,26 @@ public class SpringbootTestApplication implements WebMvcConfigurer {
 		SpringApplication.run(SpringbootTestApplication.class, args);
 	}
 
-	/*
+	
 	@Override
 	public void addViewControllers(ViewControllerRegistry registry) {
 		registry.addViewController("/login").setViewName("/login");
 		registry.setOrder(Ordered.LOWEST_PRECEDENCE);
+		registry.addViewController("/logout").setViewName("/logout");
+		registry.setOrder(Ordered.LOWEST_PRECEDENCE);
+		
 		
 	}
-	*/
+	 @Override
+	  public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	   registry.addResourceHandler("/webjars/**", "/resources/**", "/static/**", "/img/**", "/css/**", "/js/**",
+					"classpath:/static/", "classpath:/resources/")
+			.addResourceLocations("/webjars/", "/resources/",
+							"classpath:/static/**", "classpath:/static/img/**", "classpath:/static/",
+							"classpath:/resources/", "classpath:/static/css/", "classpath:/static/js/", "/resources/**",
+							"/WEB-INF/classes/static/**");
+			
+	  }
 	
 	
 	

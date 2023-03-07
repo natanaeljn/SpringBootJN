@@ -19,7 +19,7 @@ public class WebSecurity {
 	
 	@Bean
 	 SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-	   return http.authorizeHttpRequests( 
+	    http.authorizeHttpRequests( 
 	    		authorizeConfig->{
 	    			
 	    			authorizeConfig.requestMatchers("/").hasAnyRole("ADMIN","USER","SECRETARIA");
@@ -29,8 +29,17 @@ public class WebSecurity {
 	    			authorizeConfig.anyRequest().authenticated();
 	    		}
 	     )
-	    .formLogin(Customizer.withDefaults())
-		.build();
+			   .formLogin()
+				  .loginPage("/login")
+				  .defaultSuccessUrl("/cadastropessoa")
+				  .failureUrl("/login?error=true")
+				  .permitAll()
+				  .and()
+				.logout()
+				.logoutUrl("/logout")
+				.logoutSuccessUrl("/login")
+				.deleteCookies("JSESSIONID");
+				return http.build();
 	}
 	@Bean
 	PasswordEncoder getPasswordEncoder() {
